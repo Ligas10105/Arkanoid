@@ -12,6 +12,8 @@ class Ball : public sf::Drawable {
 public:
     Ball(float cx, float cy);
 
+    const float radius{30.0};
+
     void update();
 
     void moveUp();
@@ -32,9 +34,9 @@ public:
 
     float bottom();
 
+
 private:
     sf::CircleShape shape;
-    const float radius{30.0};
     const float ballVelocity{7.0};
     sf::Vector2f velocity{ballVelocity, ballVelocity};
     void draw(sf::RenderTarget& target, sf::RenderStates state) const override;

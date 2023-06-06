@@ -9,7 +9,7 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Arkanoid src/main.cpp src/Colission.cpp src/Ball.h src/Ball.h src/Ball.cpp)
+add_executable(Arkanoid src/main.cpp src/Colission.cpp src/Ball.h src/Ball.h src/Ball.cpp src/Block.h src/Block.cpp)
 
 target_link_libraries(Arkanoid PRIVATE sfml-graphics)
 target_compile_features(Arkanoid PRIVATE cxx_std_17)
