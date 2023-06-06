@@ -10,11 +10,12 @@
 
 class Ball : public sf::Drawable {
 public:
+
     float cx {};
     float cy{};
     float radius {};
 
-    Ball(float CX, float CY, float RADIUS) : cx(CX), cy(CY), radius(RADIUS) {
+    Ball(float cx, float cy, float radius) : cx(cx), cy(cy), radius(radius) {
         shape.setPosition(cx, cy);
         shape.setRadius(radius);
         shape.setFillColor(sf::Color::White);
@@ -40,8 +41,6 @@ public:
     float top();
 
     float bottom();
-
-
 
 
 

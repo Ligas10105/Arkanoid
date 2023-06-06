@@ -17,8 +17,5 @@ void Block::setNoCollisionColor() {
     shape.setFillColor(sf::Color::White);
 }
 
-sf::Vector2f Block ::getPosition() {
-    return shape.getPosition();
-}
 
 
