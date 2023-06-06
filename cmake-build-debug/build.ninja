@@ -49,19 +49,19 @@ cmake_ninja_workdir = C$:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-buil
 
 build cmake_object_order_depends_target_Arkanoid: phony || cmake_object_order_depends_target_sfml-graphics cmake_object_order_depends_target_sfml-system cmake_object_order_depends_target_sfml-window
 
-build CMakeFiles/Arkanoid.dir/main.cpp.obj: CXX_COMPILER__Arkanoid_Debug C$:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/main.cpp || cmake_object_order_depends_target_Arkanoid
-  DEP_FILE = CMakeFiles\Arkanoid.dir\main.cpp.obj.d
+build CMakeFiles/Arkanoid.dir/src/main.cpp.obj: CXX_COMPILER__Arkanoid_Debug C$:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/src/main.cpp || cmake_object_order_depends_target_Arkanoid
+  DEP_FILE = CMakeFiles\Arkanoid.dir\src\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++23
   INCLUDES = -IC:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\Arkanoid.dir
-  OBJECT_FILE_DIR = CMakeFiles\Arkanoid.dir
+  OBJECT_FILE_DIR = CMakeFiles\Arkanoid.dir\src
 
-build CMakeFiles/Arkanoid.dir/Colission.cpp.obj: CXX_COMPILER__Arkanoid_Debug C$:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/Colission.cpp || cmake_object_order_depends_target_Arkanoid
-  DEP_FILE = CMakeFiles\Arkanoid.dir\Colission.cpp.obj.d
+build CMakeFiles/Arkanoid.dir/src/Colission.cpp.obj: CXX_COMPILER__Arkanoid_Debug C$:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/src/Colission.cpp || cmake_object_order_depends_target_Arkanoid
+  DEP_FILE = CMakeFiles\Arkanoid.dir\src\Colission.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++23
   INCLUDES = -IC:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\Arkanoid.dir
-  OBJECT_FILE_DIR = CMakeFiles\Arkanoid.dir
+  OBJECT_FILE_DIR = CMakeFiles\Arkanoid.dir\src
 
 
 # =============================================================================
@@ -71,7 +71,7 @@ build CMakeFiles/Arkanoid.dir/Colission.cpp.obj: CXX_COMPILER__Arkanoid_Debug C$
 #############################################
 # Link the executable Arkanoid.exe
 
-build Arkanoid.exe: CXX_EXECUTABLE_LINKER__Arkanoid_Debug CMakeFiles/Arkanoid.dir/main.cpp.obj CMakeFiles/Arkanoid.dir/Colission.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-d.a _deps/sfml-build/lib/libsfml-window-d.a _deps/sfml-build/lib/libsfml-system-d.a || _deps/sfml-build/lib/sfml-graphics-d-2.dll _deps/sfml-build/lib/sfml-system-d-2.dll _deps/sfml-build/lib/sfml-window-d-2.dll
+build Arkanoid.exe: CXX_EXECUTABLE_LINKER__Arkanoid_Debug CMakeFiles/Arkanoid.dir/src/main.cpp.obj CMakeFiles/Arkanoid.dir/src/Colission.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-d.a _deps/sfml-build/lib/libsfml-window-d.a _deps/sfml-build/lib/libsfml-system-d.a || _deps/sfml-build/lib/sfml-graphics-d-2.dll _deps/sfml-build/lib/sfml-system-d-2.dll _deps/sfml-build/lib/sfml-window-d-2.dll
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-d.a  _deps/sfml-build/lib/libsfml-window-d.a  _deps/sfml-build/lib/libsfml-system-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Arkanoid.dir

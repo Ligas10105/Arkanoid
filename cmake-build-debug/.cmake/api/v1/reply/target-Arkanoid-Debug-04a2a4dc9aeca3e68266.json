@@ -195,13 +195,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "src/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Colission.cpp",
+			"path" : "src/Colission.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
