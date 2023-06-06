@@ -440,3 +440,43 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: C:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe cmTC_28898 && [1/2] Building C object CMakeFiles/cmTC_28898.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_28898.exe
+
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: C:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe cmTC_ce625 && [1/2] Building C object CMakeFiles/cmTC_ce625.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_ce625.exe
+
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: C:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe cmTC_d036f && [1/2] Building C object CMakeFiles/cmTC_d036f.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_d036f.exe
+
+
+
+Determining size of void* passed with the following output:
+Change Dir: C:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe cmTC_efc4b && [1/2] Building C object CMakeFiles/cmTC_efc4b.dir/SIZEOF_VOID_PTR.c.obj
+[2/2] Linking C executable cmTC_efc4b.exe
+
+
+
+Determining if the include file dinput.h exists passed with the following output:
+Change Dir: C:/Users/ligas/OneDrive/Pulpit/Github/Arkanoid/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe cmTC_cef83 && [1/2] Building C object CMakeFiles/cmTC_cef83.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_cef83.exe
+
+
+
