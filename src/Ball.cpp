@@ -3,12 +3,7 @@
 //
 
 #include "Ball.h"
-Ball::Ball(float cx, float cy) {
-    shape.setPosition(cx, cy);
-    shape.setRadius(radius);
-    shape.setFillColor(sf::Color::White);
-    shape.setOrigin(radius, radius);
-}
+
 
     void Ball::draw(sf::RenderTarget &target, sf::RenderStates state) const {
         target.draw(shape,state);

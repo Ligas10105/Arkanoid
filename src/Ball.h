@@ -10,9 +10,16 @@
 
 class Ball : public sf::Drawable {
 public:
-    Ball(float cx, float cy);
+    float cx {};
+    float cy{};
+    float radius {};
 
-    const float radius{30.0};
+    Ball(float CX, float CY, float RADIUS) : cx(CX), cy(CY), radius(RADIUS) {
+        shape.setPosition(cx, cy);
+        shape.setRadius(radius);
+        shape.setFillColor(sf::Color::White);
+        shape.setOrigin(radius, radius);
+    }
 
     void update();
 
@@ -35,11 +42,16 @@ public:
     float bottom();
 
 
+
+
+
 private:
     sf::CircleShape shape;
     const float ballVelocity{7.0};
     sf::Vector2f velocity{ballVelocity, ballVelocity};
     void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
+
+
 };
 
 

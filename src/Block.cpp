@@ -4,11 +4,6 @@
 
 #include "Block.h"
 
-Block::Block(float rx, float ry) {
-    shape.setPosition(rx, ry);
-    shape.setSize({blockWidth, blockHeight});
-    shape.setFillColor(sf::Color::White);
-}
 
 void Block::draw(sf::RenderTarget &target, sf::RenderStates state) const {
     target.draw(this->shape, state);
@@ -26,6 +21,4 @@ sf::Vector2f Block ::getPosition() {
     return shape.getPosition();
 }
 
-Colission::rectangle Block::getVertices() {
-    return
-}
+
