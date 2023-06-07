@@ -7,24 +7,30 @@
 
 #include "SFML/Graphics.hpp"
 #include <array>
+#include <math.h>
 
 
 class Colission {
 public:
 
-    struct Circle {
-        sf::Vector2f center;
-        float radius;
-    };
-    struct Rectangle {
-        std::array<sf::Vector2f, 4> vertices;
-    };
+   struct Shape {
+       std::string type;
+       sf::Vector2f center;
+       float radius;
+       std::vector<sf::Vector2f> vertices;
 
+   };
     sf::Vector2f normalVector(const sf::Vector2f &p1, const sf::Vector2f &p2);
 
-    void projectVertices(const Circle &circle, const Rectangle &rectangle, const sf::Vector2f &axis, float min, float max);
+    void projectVertices(const Shape &shape, const sf::Vector2f &axis, sf::Vector2f &circle_axis, float min, float max);
 
-    static bool isColliding(const Rectangle &shape, const Circle &circle);
+    static bool isColliding(const Shape &shape1, const Shape &shape2);
+
+    sf::Vector2f closestVertice(const Shape &rectangle, const Shape &circle);
+
+    sf::Vector2f circleAxis(const sf::Vector2f &closest_vertice, const Shape &circle);
+
+
 
 
 };
