@@ -12,6 +12,8 @@ sf::Vector2f Colission::normalVector(const sf::Vector2f &p1, const sf::Vector2f 
     return {-edge_vertice_y, edge_vertice_x};
 }
 
+
+
 bool Colission::isColliding(const Colission::Rectangle &shape, const Colission::Circle &circle) {
 
 }

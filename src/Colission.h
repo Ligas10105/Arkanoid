@@ -22,7 +22,10 @@ public:
 
     sf::Vector2f normalVector(const sf::Vector2f &p1, const sf::Vector2f &p2);
 
+    void projectVertices(const Circle &circle, const Rectangle &rectangle, const sf::Vector2f &axis, float min, float max);
+
     static bool isColliding(const Rectangle &shape, const Circle &circle);
+
 
 };
 
