@@ -15,7 +15,7 @@ public:
     float cy{};
     float radius {};
 
-    Ball(float cx, float cy, float radius) : cx(cx), cy(cy), radius(radius) {
+    Ball(sf::Vector2f center, float radius, std::vector<sf::Vector2f> vertices = {}) : cx(cx), cy(cy), radius(radius) {
         shape.setPosition(cx, cy);
         shape.setRadius(radius);
         shape.setFillColor(sf::Color::White);

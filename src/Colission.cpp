@@ -3,7 +3,6 @@
 //
 #include "Colission.h"
 #include "Ball.h"
-#include "Block.h"
 #include <cmath>
 
 sf::Vector2f Colission::normalVector(const sf::Vector2f &p1, const sf::Vector2f &p2) {
@@ -15,7 +14,24 @@ sf::Vector2f Colission::normalVector(const sf::Vector2f &p1, const sf::Vector2f 
 
 
 bool Colission::isColliding(const Colission::Shape &shape1, const Colission::Shape &shape2) {
+    for (int i = 0; i < 4; i++) {
+        const sf::Vector2f &p1 = shape1.vertices[i];
+        const sf::Vector2f &p2 = shape1.vertices[(i + 1 % 4)];
+        const sf::Vector2f r_axis = normalVector(p1, p2);
+        const sf::Vector2f c_axis = circleAxis(shape2, closestVertice(shape1, shape2));
 
+        float min1, min2, max1, max2;
+        projectVertices(shape1, r_axis, min1, min2);
+        circleProjection(shape2, r_axis, min2, max2);
+        projectVertices(shape1, c_axis, min1, min2);
+        circleProjection(shape2, c_axis, min2, max2);
+
+        if (!Overlap(min1, max1, min2, max2)) {
+            return false;
+        }
+
+
+    }
 }
 
 
@@ -36,26 +52,36 @@ sf::Vector2f Colission::closestVertice(const Colission::Shape &rectangle, const 
 
 }
 
-sf::Vector2f Colission::circleAxis(const sf::Vector2f &closest_vertice, const Shape &circle) {
-    float circle_axis_x = closest_vertice.x - circle.center.x;
-    float circle_axis_y = closest_vertice.y - circle.center.y;
-    return {circle_axis_x, circle_axis_y};
-}
 
-void Colission::projectVertices(const Colission::Shape &shape, const sf::Vector2f &axis, sf::Vector2f &circle_axis,
-                                float min, float max) {
+void Colission::projectVertices(const Colission::Shape &shape, const sf::Vector2f &r_axis, float &min, float &max) {
 
-    if (shape.type == "Rectangle") {
-        min = max = axis.x * shape.vertices[0].x + axis.y * shape.vertices[0].y;
-        for (int i = 1; i < 4; i++) {
-            const float project = axis.x * shape.vertices[i].x + axis.y * shape.vertices[i].y;
-            if (min > project) min = project;
-            if (max < project) max = project;
-        }
 
-    } else if (shape.type == "Circle") {
-        min = max = circle_axis.x * shape.vertices[0].x + circle_axis.y * shape.vertices[0].y;
+    min = max = r_axis.x * shape.vertices[0].x + r_axis.y * shape.vertices[0].y;
+    for (int i = 1; i < 4; i++) {
+        const float project = r_axis.x * shape.vertices[i].x + r_axis.y * shape.vertices[i].y;
+        if (min > project) min = project;
+        if (max < project) max = project;
 
     }
+
+
+}
+
+
+void Colission::circleProjection(const Colission::Shape &circle, const sf::Vector2f &axis, float &min, float &max) {
+    const float project = circle.center.x * axis.x + circle.center.y * axis.y;
+    min = project + circle.radius;
+    max = project + circle.radius;
+}
+
+sf::Vector2f Colission::circleAxis(const Colission::Shape &circle, const sf::Vector2f &closest_vertice) {
+    float axis_coordinate_x = circle.center.x - closest_vertice.x;
+    float axis_coordinate_y = circle.center.y - closest_vertice.y;
+    return {axis_coordinate_x, axis_coordinate_y};
+
+}
+
+bool Colission::Overlap(float min1, float max1, float min2, float max2) {
+    return (max1 >= min2) && (max2 >= min1);
 
 }

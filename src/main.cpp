@@ -10,7 +10,7 @@ int main() {
 
    sf::RenderWindow window{sf::VideoMode(800,600), "Arkanoid"};
    window.setFramerateLimit(60);
-   Ball ball(400.f,300.f,30.f);
+   Ball ball({20.f,30.f},30.f, {});
    Block block(100.f,100.f,50.f,50.f);
 
    while(window.isOpen()){
