@@ -25,6 +25,8 @@ public:
 
     void setCollisionColor();
     void setNoCollisionColor();
+    Colission::Vertices getVertices();
+
 
 
 private:

@@ -10,19 +10,23 @@
     }
 
     void Ball ::update() {
-    shape.move(velocity);
-    if (left() < 0){
+
+    velocity.x = 0;
+    velocity.y = 0;
+    if (right() < 800 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) ){
         velocity.x = ballVelocity;
     }
-    else if (right() > 800){
+    if (left() > 0 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) ){
         velocity.x = -ballVelocity;
     }
-    else if (top() < 0){
-        velocity.y = ballVelocity;
-    }
-    else if (bottom() > 600){
+    if (top() > 0 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)){
         velocity.y = -ballVelocity;
     }
+    if (bottom() < 600 && sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)){
+        velocity.y = ballVelocity;
+    }
+
+    shape.move(velocity);
 
 }
 float Ball :: left(){
@@ -41,21 +45,6 @@ float Ball :: bottom(){
     return this -> shape.getPosition().y + shape.getRadius();
 }
 
-void Ball :: moveDown(){
-    this -> velocity.y = -ballVelocity;
-}
-
-void Ball :: moveUp() {
-    this -> velocity.y = ballVelocity;
-}
-
-void Ball ::moveRight() {
-    this -> velocity.x = ballVelocity;
-}
-
-void Ball ::moveLeft() {
-    this -> velocity.x = -ballVelocity;
-}
 
 sf::Vector2f Ball ::getPosition() {
     return shape.getPosition();

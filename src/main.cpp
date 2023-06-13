@@ -10,7 +10,7 @@ int main() {
 
    sf::RenderWindow window{sf::VideoMode(800,600), "Arkanoid"};
    window.setFramerateLimit(60);
-   Ball ball({20.f,30.f},30.f, {});
+   Ball ball({100.f,100.f},30.f);
    Block block(100.f,100.f,50.f,50.f);
 
    while(window.isOpen()){
@@ -24,7 +24,7 @@ int main() {
 
        }
        ball.update();
-       if (!Colission::isColliding(ball, block)) {
+       if (!Colission::isColliding(block.getVertices(), {ball.center, ball.radius})) {
            block.setNoCollisionColor();
        } else {
            block.setCollisionColor();

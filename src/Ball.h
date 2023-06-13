@@ -11,26 +11,17 @@
 class Ball : public sf::Drawable {
 public:
 
-    float cx {};
-    float cy{};
+    sf::Vector2f center {};
     float radius {};
 
-    Ball(sf::Vector2f center, float radius, std::vector<sf::Vector2f> vertices = {}) : cx(cx), cy(cy), radius(radius) {
-        shape.setPosition(cx, cy);
+    Ball(sf::Vector2f center, float radius) : center{center}, radius(radius) {
+        shape.setPosition(center);
         shape.setRadius(radius);
         shape.setFillColor(sf::Color::White);
         shape.setOrigin(radius, radius);
     }
 
     void update();
-
-    void moveUp();
-
-    void moveDown();
-
-    void moveRight();
-
-    void moveLeft();
 
     sf::Vector2f getPosition();
 
