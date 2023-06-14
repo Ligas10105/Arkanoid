@@ -10,11 +10,11 @@ void Block::draw(sf::RenderTarget &target, sf::RenderStates state) const {
 }
 
 void Block::setCollisionColor() {
-    shape.setFillColor(sf::Color::Red);
+    shape.setFillColor(sf::Color::White);
 }
 
 void Block::setNoCollisionColor() {
-    shape.setFillColor(sf::Color::White);
+    shape.setFillColor(sf::Color::Red);
 }
 
 Colission::Vertices Block::getVertices() {
