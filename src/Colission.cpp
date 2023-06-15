@@ -5,7 +5,7 @@
 #include "Ball.h"
 #include <cmath>
 
-sf::Vector2f Colission::rectangleAxis(const Vertices &vertices, sf::Vector2f &p1, sf::Vector2f &p2) {
+sf::Vector2f Colission::rectangleAxis(sf::Vector2f &p1, sf::Vector2f &p2) {
 
     float edge_vertice_x = p2.x - p1.x;
     float edge_vertice_y = p2.y - p1.y;
@@ -23,7 +23,7 @@ bool Colission::isColliding(const Vertices &vertices, const Circle &circle) {
     for (int i = 0; i < vertices.size(); i++) {
         p1 = vertices[0];
         p2 = vertices[(i + 1) % vertices.size()];
-        sf::Vector2f axis = rectangleAxis(vertices, p1, p2);
+        sf::Vector2f axis = rectangleAxis(p1, p2);
         projectVertices(vertices, axis, min1, max1);
         circleProjection(circle, axis, min2, max2);
         if (!Overlap(min1, max1, min2, max2)) {
