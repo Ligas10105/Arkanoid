@@ -28,12 +28,11 @@ add_executable(Arkanoid
 
 target_link_libraries(Arkanoid PRIVATE sfml-graphics)
 target_compile_features(Arkanoid PRIVATE cxx_std_17)
-
 if (WIN32 AND BUILD_SHARED_LIBS)
     add_custom_command(TARGET Arkanoid POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:Arkanoid> $<TARGET_FILE_DIR:Arkanoid> COMMAND_EXPAND_LISTS
-            )
-endif()
+            COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:Arkanoid> $<TARGET_FILE_DIR:Arkanoid> COMMAND_EXPAND_LISTS)
+endif ()
+
 
 install(TARGETS Arkanoid)
 
@@ -45,6 +44,10 @@ add_executable(ArkanoidTests
 
 target_link_libraries(ArkanoidTests PRIVATE sfml-graphics gtest_main)
 target_compile_features(ArkanoidTests PRIVATE cxx_std_17)
+if (WIN32 AND BUILD_SHARED_LIBS)
+    add_custom_command(TARGET ArkanoidTests POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:ArkanoidTests> $<TARGET_FILE_DIR:ArkanoidTests> COMMAND_EXPAND_LISTS)
+endif ()
 
 enable_testing()
 add_test(NAME ArkanoidTests COMMAND ArkanoidTests)
