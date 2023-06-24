@@ -45,6 +45,9 @@ float Ball :: bottom(){
     return this -> shape.getPosition().y + shape.getRadius();
 }
 
+float Ball::getRadius(){
+    return shape.getRadius();
+}
 
 sf::Vector2f Ball ::getPosition() {
     return shape.getPosition();

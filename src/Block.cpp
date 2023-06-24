@@ -10,15 +10,18 @@ void Block::draw(sf::RenderTarget &target, sf::RenderStates state) const {
 }
 
 void Block::setCollisionColor() {
-    shape.setFillColor(sf::Color::White);
-}
-
-void Block::setNoCollisionColor() {
     shape.setFillColor(sf::Color::Red);
 }
 
+void Block::setNoCollisionColor() {
+    shape.setFillColor(sf::Color::Green);
+}
+
 Colission::Vertices Block::getVertices() {
-    return {{x,y },{(x+width), y}, {(x+width),(y+height)}, {x, (y+height)}};
+    return {{x,           y},
+            {(x + width), y},
+            {(x + width), (y + height)},
+            {x,           (y + height)}};
 }
 
 

@@ -11,10 +11,9 @@
 class Ball : public sf::Drawable {
 public:
 
-    sf::Vector2f center {};
-    float radius {};
 
-    Ball(sf::Vector2f center, float radius) : center{center}, radius(radius) {
+
+    Ball(sf::Vector2f center, float radius) {
         shape.setPosition(center);
         shape.setRadius(radius);
         shape.setFillColor(sf::Color::White);
@@ -25,6 +24,8 @@ public:
 
     sf::Vector2f getPosition();
 
+    float getRadius();
+
     float left();
 
     float right();
@@ -34,12 +35,12 @@ public:
     float bottom();
 
 
-
 private:
     sf::CircleShape shape;
     const float ballVelocity{7.0};
     sf::Vector2f velocity{ballVelocity, ballVelocity};
-    void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
+
+    void draw(sf::RenderTarget &target, sf::RenderStates state) const override;
 
 
 };

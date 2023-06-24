@@ -5,33 +5,33 @@
 #include "Ball.h"
 #include <cmath>
 
+
 sf::Vector2f Colission::rectangleAxis(sf::Vector2f &p1, sf::Vector2f &p2) {
 
     float edge_vertice_x = p2.x - p1.x;
     float edge_vertice_y = p2.y - p1.y;
     sf::Vector2f axis = {-edge_vertice_y, edge_vertice_x};
-    return axis;
+    return Normalize(axis);
 
 }
 
 
-bool Colission::isColliding(const Vertices &vertices, const Circle &circle) {
+bool Colission::isColliding(const Vertices &vertices, const Circle circle) {
     sf::Vector2f p1;
     sf::Vector2f p2;
-    sf::Vector2f r_axis;
-    float min1, min2, max1, max2;
+    float min1, max1;
     for (int i = 0; i < vertices.size(); i++) {
-        p1 = vertices[0];
+        p1 = vertices[i];
         p2 = vertices[(i + 1) % vertices.size()];
         sf::Vector2f axis = rectangleAxis(p1, p2);
         projectVertices(vertices, axis, min1, max1);
-        circleProjection(circle, axis, min2, max2);
+        const auto [min2, max2] = circleProjection(circle, axis);
         if (!Overlap(min1, max1, min2, max2)) {
             return false;
         }
     }
     projectVertices(vertices, circleAxis(vertices, circle), min1, max1);
-    circleProjection(circle, circleAxis(vertices, circle), min2, max2);
+    const auto [min2, max2] = circleProjection(circle, circleAxis(vertices, circle));
     if (!Overlap(min1, max1, min2, max2)) {
         return false;
     }
@@ -41,7 +41,7 @@ bool Colission::isColliding(const Vertices &vertices, const Circle &circle) {
 
 
 sf::Vector2f Colission::circleAxis(const Vertices &vertices, const Circle &circle) {
-    sf::Vector2f closest_vertice {};
+    sf::Vector2f closest_vertice{};
     sf::Vector2f circle_axis{};
     float closest_distance = std::numeric_limits<float>::max();
     for (int i = 0; i < vertices.size(); i++) {
@@ -55,7 +55,7 @@ sf::Vector2f Colission::circleAxis(const Vertices &vertices, const Circle &circl
 
     }
 
-    return circle_axis;
+    return Normalize(circle_axis);
 }
 
 
@@ -72,11 +72,11 @@ void Colission::projectVertices(const Vertices &vertices, const sf::Vector2f &ax
 }
 
 
-sf::Vector2f Colission::circleProjection(const Circle &circle, const sf::Vector2f &axis, float &min, float &max) {
+std::pair<float, float> Colission::circleProjection(const Circle &circle, const sf::Vector2f &axis) {
 
 
-    min = (circle.center.x * axis.x + circle.center.y * axis.y) - circle.radius;
-    max = (circle.center.x * axis.x + circle.center.y * axis.y) + circle.radius;
+    float min = (circle.center.x * axis.x + circle.center.y * axis.y) - (circle.radius);
+    float max = (circle.center.x * axis.x + circle.center.y * axis.y) + (circle.radius);
 
     return {min, max};
 
@@ -85,4 +85,9 @@ sf::Vector2f Colission::circleProjection(const Circle &circle, const sf::Vector2
 
 bool Colission::Overlap(float min1, float max1, float min2, float max2) {
     return (max1 >= min2) && (max2 >= min1);
+}
+
+sf::Vector2f Colission::Normalize(sf::Vector2f vector) {
+    const auto length = sqrtf(vector.x * vector.x + vector.y * vector.y);
+    return sf::Vector2f{vector.x / length, vector.y / length};
 }

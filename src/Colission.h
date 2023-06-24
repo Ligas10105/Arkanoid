@@ -24,13 +24,15 @@ public:
 
     static void projectVertices(const Vertices &vertices, const sf::Vector2f &axis, float &min, float &max);
 
-    static bool isColliding(const Vertices &vertices, const Circle &circle);
+    static bool isColliding(const Vertices &vertices, const Circle circle);
 
     static bool Overlap(float min1, float max1, float min2, float max2);
 
-    static sf::Vector2f circleProjection(const Circle &circle,const sf::Vector2f &axis, float &min, float &max);
+    static std::pair<float, float> circleProjection(const Circle &circle, const sf::Vector2f &axis);
 
     static sf::Vector2f circleAxis(const Vertices &rectangle, const Circle &circle);
+
+    static sf::Vector2f Normalize(sf::Vector2f vector);
 
 
 };
