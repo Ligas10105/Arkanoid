@@ -17,7 +17,7 @@ void Block::setNoCollisionColor() {
     shape.setFillColor(sf::Color::Green);
 }
 
-Colission::Vertices Block::getVertices() {
+Colission::Vertices Block::getVertices() const{
     return {{x,           y},
             {(x + width), y},
             {(x + width), (y + height)},

@@ -13,34 +13,34 @@ public:
 
 
 
-    Ball(sf::Vector2f center, float radius) {
-        shape.setPosition(center);
-        shape.setRadius(radius);
-        shape.setFillColor(sf::Color::White);
-        shape.setOrigin(radius, radius);
-    }
+	Ball(sf::Vector2f center, float radius) {
+		shape.setPosition(center);
+		shape.setRadius(radius);
+		shape.setFillColor(sf::Color::White);
+		shape.setOrigin(radius, radius);
+	}
 
-    void update();
+	void update();
 
-    sf::Vector2f getPosition();
+	sf::Vector2f getPosition();
 
-    float getRadius();
+	float getRadius();
 
-    float left();
+	float left();
 
-    float right();
+	float right();
 
-    float top();
+	float top();
 
-    float bottom();
+	float bottom();
 
 
 private:
-    sf::CircleShape shape;
-    const float ballVelocity{7.0};
-    sf::Vector2f velocity{ballVelocity, ballVelocity};
+	sf::CircleShape shape;
+	const float ballVelocity{ 14.f };
+	sf::Vector2f velocity{ballVelocity, ballVelocity};
 
-    void draw(sf::RenderTarget &target, sf::RenderStates state) const override;
+	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 
 
 };

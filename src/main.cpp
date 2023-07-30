@@ -11,7 +11,17 @@ int main() {
     sf::RenderWindow window{sf::VideoMode(800, 600), "Arkanoid"};
     window.setFramerateLimit(60);
     Ball ball({199.f, 200.f}, 30.f);
-    Block block(200.f, 100.f, 200.f, 150.f);
+    using Block = std::vector<Block>;
+    Block m_blocks = {{50.f,  50.f,  100.f, 25.f},
+                      {200.f, 50.f,  100.f, 25.f},
+                      {350.f, 50.f,  100.f, 25.f},
+                      {500.f, 50.f,  100.f, 25.f},
+                      {650.f, 50.f,  100.f, 25.f},
+                      {650.f, 100.f, 100.f, 25.f},
+                      {500.f, 100.f, 100.f, 25.f},
+                      {350.f, 100.f, 100.f, 25.f},
+                      {200.f, 100.f, 100.f, 25.f},
+                      {50.f, 100.f, 100.f, 25.f}};
 
     while (window.isOpen()) {
         window.clear(sf::Color::Black);
@@ -24,16 +34,22 @@ int main() {
 
         }
         ball.update();
-        if (!Colission::isColliding(block.getVertices(), {ball.getPosition(), ball.getRadius()})) {
-            block.setNoCollisionColor();
-        } else {
-            block.setCollisionColor();
+        window.draw(ball);
+        for (auto &m_block: m_blocks) {
+            window.draw(m_block);
+            if (!Colission::isColliding(m_block.getVertices(), {ball.getPosition(), ball.getRadius()})) {
+                m_block.setNoCollisionColor();
+            } else {
+                m_block.setCollisionColor();
+            }
         }
 
 
-        window.draw(block);
-        window.draw(ball);
         window.display();
+
+
     }
 
 }
+
+

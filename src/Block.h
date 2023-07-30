@@ -4,11 +4,12 @@
 
 #ifndef ARKANOID_BLOCK_H
 #define ARKANOID_BLOCK_H
+
 #include <SFML/Graphics.hpp>
 #include "Colission.h"
 
 
-class Block : public sf::Drawable{
+class Block : public sf::Drawable {
 
 public:
 
@@ -24,15 +25,16 @@ public:
     }
 
     void setCollisionColor();
-    void setNoCollisionColor();
-    Colission::Vertices getVertices();
 
+    void setNoCollisionColor();
+
+    Colission::Vertices getVertices() const;
 
 
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
-    sf::RectangleShape shape;
+    void draw(sf::RenderTarget &target, sf::RenderStates state) const override;
 
+    sf::RectangleShape shape;
 
 
 };
