@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Colission.h"
+#include <chrono>
 
 
 class Block : public sf::Drawable {
@@ -17,6 +18,9 @@ public:
     float y{};
     float width{};
     float height{};
+    float invisibleTime{5.f};
+    bool isDestroyed = false;
+
 
     Block(float x, float y, float width, float height) : x(x), y(y), width(width), height(height) {
         shape.setPosition(x, y);
@@ -27,6 +31,8 @@ public:
     void setCollisionColor();
 
     void setNoCollisionColor();
+
+    void Destroy();
 
     Colission::Vertices getVertices() const;
 

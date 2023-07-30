@@ -24,5 +24,18 @@ Colission::Vertices Block::getVertices() const{
             {x,           (y + height)}};
 }
 
+void Block::Destroy() {
+
+    auto startTime = std::chrono::high_resolution_clock::now();
+    isDestroyed = true;
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<float> elapsedTime = currentTime - startTime;
+    if(elapsedTime.count() > invisibleTime){
+        isDestroyed = false;
+    }
+
+}
+
+
 
 
